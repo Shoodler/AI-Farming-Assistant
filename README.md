@@ -1,77 +1,70 @@
-# README.md
+# 🧑‍🌾 Voice-Based Farming Assistant (RAG + Groq + FAISS)
 
+This project is an AI-powered **voice-interactive farming assistant** designed to help farmers ask questions using speech and receive clear, natural spoken guidance related to **agriculture, crops, soil, irrigation, pests, weather, livestock, and government farming schemes**.
 
-# AI Farming Helper (Flask Version)
+The system uses:
+- **Speech-to-Text (STT)** to convert user audio into text
+- **RAG (Retrieval-Augmented Generation)** using **FAISS** to search relevant information from stored documents
+- **Groq LLaMA-3.1** for fast, low-latency LLM reasoning
+- **Text-to-Speech (TTS)** using gTTS to generate a spoken reply
+- A simple browser UI for seamless interaction
 
-A voice-based agriculture assistant web app. Record or upload audio, get instant spoken-friendly answers and MP3 playback.
-
-## Features
-
-- Upload or record audio questions
-- Automatic speech-to-text conversion (Whisper/STT)
-- AI response via LLM model (Groq/OpenAI/Llama, etc.)
-- Text-to-speech MP3 output (Google TTS)
-- Audio and text displayed in the browser
-
-## How to Run
-
-1. **Install dependencies:**
-
-    ```
-    pip install -r requirements.txt
-    ```
-
-2. **Start the Flask server:**
-
-    ```
-    python app.py
-    ```
-
-3. **Open your browser at:**
-
-    [http://127.0.0.1:5000](http://127.0.0.1:5000)
-
-4. **Usage:**
-   - Click "Press to Speak" or upload an audio file.
-   - Wait for the assistant’s response and listen in the browser!
-
-## File Structure
+## 📂 Project Structure
 
 ```
-yourapp/
-├── app.py
-├── stt.py
-├── llm.py
-├── tts.py
-├── utils.py
-├── requirements.txt
-├── static/
+project/
+│   app.py
+│   llm.py
+│   stt.py
+│   tts.py
+│   utils.py
+│   requirements.txt
+│   .env
+│
+├───rag
+│   ├── build_index.py
+│   ├── query_index.py
+│   ├── vector_index.faiss
+│   ├── docs.pkl
+│   └── data/
+│
+├───static
 │   ├── css/
-│   │   └── styles.css
 │   ├── js/
-│   │   └── script.js
 │   └── media/
-│       └── (output MP3 files)
-├── templates/
-│   └── index.html
+│
+└───templates
+    └── index.html
 ```
 
-## Troubleshooting
+## 🚀 Running Locally
 
-- If audio does not play, check `static/media/` for MP3 files.
-- Make sure your browser sources CSS/JS using Flask’s `url_for`.
-- All audio URLs start with `/static/media/`.
-
----
-
-# requirements.txt
-
+### 1. Install dependencies
+```bash
+pip install -r requirements.txt
 ```
-flask
-flask-cors
-gtts
-whisper
-openai
-python-dotenv
+
+### 2. Add your API key in `.env`
 ```
-*Add/remove dependencies based on your actual model (Groq, Llama, etc.).*
+GROQ_API_KEY=your_api_key_here
+```
+
+### 3. Build FAISS Index
+```bash
+python rag/build_index.py
+```
+
+### 4. Start Server
+```bash
+python app.py
+```
+
+Visit http://127.0.0.1:5000/
+
+## 🎙 Voice Flow
+
+User speaks → STT → Retrieve context via FAISS → LLM answer → gTTS → Audio playback
+
+## 🌍 Deployment (Hugging Face Spaces)
+
+Prepare Dockerfile, push project, and set `GROQ_API_KEY` as HF secret.
