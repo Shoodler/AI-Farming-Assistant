@@ -68,3 +68,26 @@ User speaks → STT → Retrieve context via FAISS → LLM answer → gTTS → A
 ## 🌍 Deployment (Hugging Face Spaces)
 
 Prepare Dockerfile, push project, and set `GROQ_API_KEY` as HF secret.
+This app is prepared to deploy as-is to Hugging Face Spaces using Docker.
+You only need to:
+
+Add a Dockerfile
+
+Ensure GROQ_API_KEY is set as a secret in the Space
+
+Push to the Space repo
+
+(Setup guide provided separately.)
+---
+
+🧾 License
+
+MIT License.
+
+✨ Acknowledgements
+
+Groq for fast inference
+
+SentenceTransformers for embeddings
+
+FAISS for vector search
