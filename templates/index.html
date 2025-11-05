@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voice Assistant</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">🎙️ Voice Assistant</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#assistant">Assistant</a></li>
+                <li><a href="#knowledge">Knowledge Base</a></li>
+                <li><a href="#about">About</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Voice Assistant Prototype</h1>
+            <p class="subtitle">Your Intelligent Voice Assistant</p>
+            <p class="description">Get instant answers to your questions using voice commands</p>
+            <a href="#assistant" class="cta-button">Get Started</a>
+        </div>
+    </section>
+
+    <!-- Assistant Section -->
+    <section id="assistant" class="assistant-section">
+        <div class="container">
+            <h2>Ask Your Question</h2>
+            <p class="section-subtitle">Press the button and speak your question, or upload an audio file</p>
+
+            <!-- Language Selection -->
+            <div class="language-selector">
+                <label for="lang-select">Select Language:</label>
+                <select id="lang-select">
+                    <option>Auto-detect</option>
+                    <option>hi</option>
+                    <option>mr</option>
+                    <option>ml</option>
+                </select>
+            </div>
+
+            <!-- Recording Button -->
+            <div class="record-container">
+                <button id="record-btn" class="record-btn">
+                    <span class="mic-icon">🎤</span>
+                    <span class="btn-text">Press to Speak</span>
+                </button>
+                <div id="loader" class="loader" style="display: none;">
+                    <div class="spinner"></div>
+                    <p>Processing your audio... please wait ⏳</p>
+                </div>
+            </div>
+
+            <!-- File Upload Option -->
+            <div class="upload-container">
+                <p class="or-text">— or —</p>
+                <label for="audio-file-input" class="upload-label">
+                    📁 Upload Audio File
+                    <input type="file" id="audio-file-input" accept="audio/*" style="display: none;">
+                </label>
+            </div>
+
+            <!-- Results Area -->
+            <div id="results-area" class="results" style="display: none;">
+                <div class="result-card">
+                    <h3>Your Query:</h3>
+                    <p id="user-question" class="user-text"></p>
+                </div>
+                <div class="result-card">
+                    <h3>Assistant's Response:</h3>
+                    <p id="ai-response" class="ai-text"></p>
+                    <h3>🔊 Audio Response:</h3>
+                    <audio id="response-audio" controls class="audio-player"></audio>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Knowledge Base Section -->
+    <section id="knowledge" class="knowledge-section">
+        <div class="container">
+            <h2>Knowledge Base</h2>
+            <p class="section-subtitle">Topics we can help you with</p>
+            <div class="knowledge-grid">
+                <div class="knowledge-card">
+                    <div class="card-icon">💡</div>
+                    <h3>General Knowledge</h3>
+                    <p>Ask questions about various topics and get instant, accurate responses.</p>
+                </div>
+                <div class="knowledge-card">
+                    <div class="card-icon">🔍</div>
+                    <h3>Information Lookup</h3>
+                    <p>Search for specific information and receive detailed explanations.</p>
+                </div>
+                <div class="knowledge-card">
+                    <div class="card-icon">🗣️</div>
+                    <h3>Multi-Language Support</h3>
+                    <p>Interact with the assistant in multiple languages including English, Hindi, Spanish, and French.</p>
+                </div>
+                <div class="knowledge-card">
+                    <div class="card-icon">🎯</div>
+                    <h3>Quick Answers</h3>
+                    <p>Get fast, accurate responses to your queries with voice playback.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About/Technology Section -->
+    <section id="about" class="tech-section">
+        <div class="container">
+            <h2>Technology Stack</h2>
+            <p class="section-subtitle">Powered by cutting-edge AI technologies</p>
+            <div class="tech-grid">
+                <div class="tech-item">
+                    <strong>Whisper API</strong>
+                    <p>State-of-the-art speech-to-text recognition with automatic language detection.</p>
+                </div>
+                <div class="tech-item">
+                    <strong>Groq LLM</strong>
+                    <p>Powered by Llama 3.1 for intelligent, context-aware responses in natural language.</p>
+                </div>
+                <div class="tech-item">
+                    <strong>Google TTS</strong>
+                    <p>High-quality text-to-speech for natural voice responses in multiple languages.</p>
+                </div>
+                <div class="tech-item">
+                    <strong>Flask Backend</strong>
+                    <p>Robust Python backend for seamless integration of all AI services.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Voice Assistant Prototype. Built with innovative AI technology.</p>
+        </div>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

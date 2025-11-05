@@ -1,0 +1,10 @@
+Flask
+flask-cors
+python-dotenv
+openai
+groq
+faiss-cpu
+sentence-transformers
+pydub
+requests
+python-multipart
